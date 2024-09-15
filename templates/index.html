@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Regions Latency Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="error-message" style="color: red; position: fixed; top: 10px; left: 50%; transform: translateX(-50%);"></div>
+    <div id="map"></div>
+    <div id="latency-table">
+        <h3>Latency Table</h3>
+        <table id="latency-data">
+            <thead>
+                <tr>
+                    <th>Region</th>
+                    <th>Latency</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div id="legend">
+        <h3>Latency</h3>
+        <div class="legend-item"><span class="color-box" style="background-color: #00ff00;"></span> &lt; 1ms</div>
+        <div class="legend-item"><span class="color-box" style="background-color: #80ff00;"></span> 1ms - 10ms</div>
+        <div class="legend-item"><span class="color-box" style="background-color: #ffff00;"></span> 10ms - 100ms</div>
+        <div class="legend-item"><span class="color-box" style="background-color: #ffa500;"></span> 100ms - 1000ms</div>
+        <div class="legend-item"><span class="color-box" style="background-color: #ff0000;"></span> &gt; 1000+ms</div>
+        <div class="legend-item"><span class="color-box" style="background-color: #808080;"></span> No data</div>
+    </div>
+    <div id="traceroute-panel">
+        <h3>Traceroute Information</h3>
+        <p>Click on a region marker to view traceroute data.</p>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
